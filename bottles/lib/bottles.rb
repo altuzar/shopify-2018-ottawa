@@ -1,3 +1,15 @@
+class Integer
+  def to_bottle_number
+    BottleNumber.for(self)
+  end
+end
+
+def BottleNumber(number)
+  return number if number.kind_of?(BottleNumber)
+  BottleNumber.for(number)
+end
+
+
 class Bottles
   def song
     verses(99, 0)
@@ -86,7 +98,7 @@ class BottleNumber
   end
 
   def successor
-    BottleNumber.for(number - 1)
+    BottleNumber(number - 1)
   end
 end
 
@@ -106,7 +118,7 @@ class BottleNumber0 < BottleNumber
   end
 
   def successor
-    BottleNumber.for(99)
+    99.to_bottle_number
   end
 end
 
